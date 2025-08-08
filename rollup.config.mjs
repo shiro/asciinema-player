@@ -87,5 +87,17 @@ export default [
       }
     ],
     plugins: cjsPlugins
-  }
+  },
+
+  {
+    input: ["src/terminal.js"],
+    output: [
+      {
+        dir: "dist",
+        format: "es"
+      }
+    ],
+    external: [/@babel\/runtime/],
+    plugins: esmPlugins
+  },
 ];

@@ -80,7 +80,27 @@ impl Vt {
 
     #[wasm_bindgen(js_name = getCursor)]
     pub fn get_cursor(&self) -> JsValue {
-        let cursor: Option<(usize, usize)> = self.vt.cursor().into();
+        #[derive(Debug, Serialize)]
+        struct Cursor {
+            pos: (usize, usize),
+            visible: bool,
+            blinking: bool,
+            shape: String,
+        }
+        use avt::terminal::CursorShape;
+        let cursor = Cursor {
+            pos: (self.vt.cursor().row, self.vt.cursor().col),
+            visible: self.vt.cursor().visible,
+            blinking: self.vt.cursor().blinking,
+            shape: match self.vt.cursor().shape {
+                CursorShape::Default => "default",
+                CursorShape::Block => "block",
+                CursorShape::Underscore => "underscore",
+                CursorShape::Line => "line",
+                CursorShape::Box => "box",
+            }
+            .to_string(),
+        };
 
         serde_wasm_bindgen::to_value(&cursor).unwrap()
     }

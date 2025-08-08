@@ -16,7 +16,8 @@
     "./dist/bundle/asciinema-player.css": "./dist/bundle/asciinema-player.css",
     "./dist/bundle/asciinema-player.min.js": "./dist/bundle/asciinema-player.min.js",
     "./dist/bundle/asciinema-player-ui.min.js": "./dist/bundle/asciinema-player-ui.min.js",
-    "./dist/bundle/asciinema-player-worker.min.js": "./dist/bundle/asciinema-player-worker.min.js"
+    "./dist/bundle/asciinema-player-worker.min.js": "./dist/bundle/asciinema-player-worker.min.js",
+    "./terminal.js": "./dist/terminal.js"
   },
   "files": [
     "dist"

@@ -11,7 +11,7 @@ crate-type = ["cdylib", "rlib"]
 # default = ["console_error_panic_hook"]
 
 [dependencies]
-avt = "0.16.0"
+avt = { git = "https://github.com/shiro/avt", branch = "feature/cursor-decorations" }
 getrandom = { version = "0.2", features = ["js"] }
 rand = "^0.8"
 serde = { version = "1.0.130", features = ["derive"] }
@@ -25,9 +25,7 @@ console_error_panic_hook = { version = "^0.1", optional = true }
 
 [dependencies.web-sys]
 version = "^0.3"
-features = [
-  "console"
-]
+features = ["console"]
 
 [dependencies.wasm-bindgen]
 version = "0.2.92"
